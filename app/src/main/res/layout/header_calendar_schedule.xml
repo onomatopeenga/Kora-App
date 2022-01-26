@@ -38,7 +38,7 @@
                     android:background="@android:color/transparent"
                     app:menu="@menu/options_menu">
 
-                    <ImageView
+                    <ImageButton
                         android:id="@+id/calendar_header"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
@@ -48,9 +48,10 @@
                         app:layout_constraintEnd_toStartOf="@id/schedule_header"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:tint="@color/iconcolor" />
+                        app:tint="@color/iconcolor"
+                        android:background="@android:color/transparent"/>
 
-                    <ImageView
+                    <ImageButton
                         android:id="@+id/schedule_header"
                         android:layout_gravity="center"
                         android:layout_width="30dp"
@@ -60,6 +61,7 @@
                         app:layout_constraintEnd_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:tint="@color/iconcolor"
+                        android:background="@android:color/transparent"
                         app:layout_constraintStart_toEndOf="@+id/calendar_header"/>
                 </androidx.appcompat.widget.Toolbar>
             </LinearLayout>
