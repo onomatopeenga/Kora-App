@@ -2,29 +2,85 @@ package com.example.kora
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
 import android.view.MenuItem
+import android.view.View
+import android.view.View.inflate
+import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import android.widget.Toolbar
+import androidx.cardview.widget.CardView
 import androidx.fragment.app.FragmentTransaction
+import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.auth.FirebaseAuth
 
-class HomeActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
-    lateinit var notesFragment: NotesFragment
-    lateinit var calendarFragment: CalendarFragment
+class HomeActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener{
+    private lateinit var firebaseAuth: FirebaseAuth
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
+        setSupportActionBar(findViewById(R.id.appbar_home))
 
-        val bottomNavigationView: BottomNavigationView =findViewById(R.id.bottomNavigationView)
+        val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavigationView)
         bottomNavigationView.background = null
-        bottomNavigationView.menu.getItem(2).isEnabled=false
+        bottomNavigationView.menu.getItem(2).isEnabled = false
         bottomNavigationView.setOnNavigationItemSelectedListener(this)
+        val calendarcard = findViewById<CardView>(R.id.calendar_card)
+        val schedulecard = findViewById<CardView>(R.id.schedule_card)
+        val notescard = findViewById<CardView>(R.id.notes_card)
+        val taskscard = findViewById<CardView>(R.id.tasks_card)
 
-        val textView = findViewById<TextView>(R.id.username_txt)
-        val intent = intent
-        val message = intent.getStringExtra("name")
-        textView.setText(message)
+        calendarcard.setOnClickListener {
+            Toast.makeText(this, "Calendar", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, CalendarActivity::class.java)
+            startActivity(intent)
+        }
+        schedulecard.setOnClickListener {
+            Toast.makeText(this, "Schedule", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, CalendarActivity::class.java)
+            startActivity(intent)
+        }
+        notescard.setOnClickListener {
+            Toast.makeText(this, "Notes", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, NotesActivity::class.java)
+            startActivity(intent)
 
+        }
+        taskscard.setOnClickListener {
+            Toast.makeText(this, "Tasks", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, NotesActivity::class.java)
+            startActivity(intent)
+
+        }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater = menuInflater
+        inflater.inflate(R.menu.options_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.settings -> {
+                Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, SettingsActivity::class.java)
+                startActivity(intent)
+                overridePendingTransition(0,0)
+            }
+            R.id.logout -> {
+                val firebaseAuth:FirebaseAuth = FirebaseAuth.getInstance()
+                firebaseAuth.signOut()
+                val intent = Intent(this, SplashScreenActivity::class.java)
+                startActivity(intent)
+                overridePendingTransition(0,0)
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
@@ -32,12 +88,32 @@ class HomeActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                 Toast.makeText(this, "Notes and Tasks", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, NotesActivity::class.java)
                 startActivity(intent)
+                overridePendingTransition(0,0)
 
             }
             R.id.calendar -> {
                 Toast.makeText(this, "Calendar and Schedule", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, CalendarActivity::class.java)
                 startActivity(intent)
+                overridePendingTransition(0,0)
+
+
+            }
+            R.id.profile -> {
+                Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, ProfileActivity::class.java)
+                startActivity(intent)
+                overridePendingTransition(0,0)
+
+
+
+            }
+            R.id.home -> {
+                Toast.makeText(this, "Home", Toast.LENGTH_SHORT).show()
+                overridePendingTransition(0,0)
+                return true
+
+
 
             }
 
@@ -45,6 +121,8 @@ class HomeActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
 
         }
         return false
+
+
     }
 
 }

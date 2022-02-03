@@ -15,6 +15,7 @@
         app:layout_constraintTop_toTopOf="parent">
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/header_appbar"
+            app:elevation="0dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -37,26 +38,14 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="15dp"
                     android:fontFamily="@font/montserrat"
-                    android:text="@string/hello"
+                    android:text="Dashboard"
                     android:textColor="@color/white"
                     android:textSize="25sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/username_txt"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:fontFamily="@font/montserrat"
-                    android:text="User"
-                    android:textColor="@color/white"
-                    android:textSize="25sp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toEndOf="@id/hello_txt"
-                    app:layout_constraintTop_toTopOf="parent" />
-
                 <androidx.appcompat.widget.Toolbar
+                    app:title=" "
                     android:id="@+id/appbar_home"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -94,6 +83,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp">
             <androidx.cardview.widget.CardView
+                android:id="@+id/calendar_card"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
@@ -109,8 +99,8 @@
                     android:layout_height="match_parent">
                     <ImageView
                         android:src="@drawable/calendarcon"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"/>
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"/>
                     <TextView
                         android:layout_marginTop="10dp"
                         android:textSize="18sp"
@@ -122,6 +112,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/schedule_card"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
@@ -137,8 +128,8 @@
                     android:layout_height="match_parent">
                     <ImageView
                         android:src="@drawable/schedulecon"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"/>
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"/>
                     <TextView
                         android:layout_marginTop="10dp"
                         android:textSize="18sp"
@@ -150,6 +141,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/notes_card"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
@@ -165,8 +157,8 @@
                     android:layout_height="match_parent">
                     <ImageView
                         android:src="@drawable/notescon"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"/>
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"/>
                     <TextView
                         android:layout_marginTop="10dp"
                         android:textSize="18sp"
@@ -177,6 +169,7 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
+                android:id="@+id/tasks_card"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
@@ -192,8 +185,8 @@
                     android:layout_height="match_parent">
                     <ImageView
                         android:src="@drawable/taskscon"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"/>
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"/>
                     <TextView
                         android:layout_marginTop="10dp"
                         android:textSize="18sp"
@@ -204,6 +197,7 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
+                android:id="@+id/reminders_card"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
@@ -219,8 +213,8 @@
                     android:layout_height="match_parent">
                     <ImageView
                         android:src="@drawable/clockcon"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"/>
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"/>
                     <TextView
                         android:layout_marginTop="10dp"
                         android:textSize="18sp"
@@ -231,6 +225,7 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
+                android:id="@+id/archive_card"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
@@ -246,8 +241,8 @@
                     android:layout_height="match_parent">
                     <ImageView
                         android:src="@drawable/archivecon"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"/>
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"/>
                     <TextView
                         android:layout_marginTop="12dp"
                         android:textSize="18sp"
@@ -273,6 +268,7 @@
             app:fabCradleRoundedCornerRadius="20dp"
             android:layout_gravity="bottom">
             <com.google.android.material.bottomnavigation.BottomNavigationView
+                app:itemIconTint="@drawable/bottomnav_selector"
                 android:id="@+id/bottomNavigationView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

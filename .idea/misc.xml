@@ -3,16 +3,24 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Sophia/AndroidStudioProjects/Kora/app/src/main/res/drawable/bottomnav_selector.xml" value="0.20208333333333334" />
         <entry key="..\:/Users/Sophia/AndroidStudioProjects/Kora/app/src/main/res/drawable/headerbackground.xml" value="0.20208333333333334" />
         <entry key="..\:/Users/Sophia/AndroidStudioProjects/Kora/app/src/main/res/drawable/headerbackground_calendar_schedule.xml" value="0.20208333333333334" />
+        <entry key="..\:/Users/Sophia/AndroidStudioProjects/Kora/app/src/main/res/drawable/ic_baseline_person_outline_24.xml" value="0.20208333333333334" />
         <entry key="..\:/Users/Sophia/AndroidStudioProjects/Kora/app/src/main/res/drawable/ic_search.xml" value="0.20677083333333332" />
         <entry key="..\:/Users/Sophia/AndroidStudioProjects/Kora/app/src/main/res/drawable/loginbtnbackground.xml" value="0.20677083333333332" />
         <entry key="..\:/Users/Sophia/AndroidStudioProjects/Kora/app/src/main/res/drawable/searchbackground.xml" value="0.20677083333333332" />
+        <entry key="..\:/Users/Sophia/AndroidStudioProjects/Kora/app/src/main/res/drawable/user.xml" value="0.20208333333333334" />
         <entry key="..\:/Users/Sophia/AndroidStudioProjects/Kora/app/src/main/res/layout/activity_calendar.xml" value="0.2" />
-        <entry key="..\:/Users/Sophia/AndroidStudioProjects/Kora/app/src/main/res/layout/activity_home.xml" value="0.2" />
-        <entry key="..\:/Users/Sophia/AndroidStudioProjects/Kora/app/src/main/res/layout/activity_login.xml" value="0.22" />
+        <entry key="..\:/Users/Sophia/AndroidStudioProjects/Kora/app/src/main/res/layout/activity_forgot_pass.xml" value="0.25" />
+        <entry key="..\:/Users/Sophia/AndroidStudioProjects/Kora/app/src/main/res/layout/activity_forgotpass.xml" value="0.1" />
+        <entry key="..\:/Users/Sophia/AndroidStudioProjects/Kora/app/src/main/res/layout/activity_home.xml" value="0.14" />
+        <entry key="..\:/Users/Sophia/AndroidStudioProjects/Kora/app/src/main/res/layout/activity_login.xml" value="0.2" />
         <entry key="..\:/Users/Sophia/AndroidStudioProjects/Kora/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/Sophia/AndroidStudioProjects/Kora/app/src/main/res/layout/activity_notes.xml" value="0.22" />
+        <entry key="..\:/Users/Sophia/AndroidStudioProjects/Kora/app/src/main/res/layout/activity_profile.xml" value="0.25" />
+        <entry key="..\:/Users/Sophia/AndroidStudioProjects/Kora/app/src/main/res/layout/activity_settings.xml" value="0.33" />
+        <entry key="..\:/Users/Sophia/AndroidStudioProjects/Kora/app/src/main/res/layout/activity_signup.xml" value="0.16" />
         <entry key="..\:/Users/Sophia/AndroidStudioProjects/Kora/app/src/main/res/layout/activity_splash.xml" value="0.22" />
         <entry key="..\:/Users/Sophia/AndroidStudioProjects/Kora/app/src/main/res/layout/activity_splash_screen.xml" value="0.1765625" />
         <entry key="..\:/Users/Sophia/AndroidStudioProjects/Kora/app/src/main/res/layout/fragment_calendar.xml" value="0.190625" />
