@@ -21,10 +21,6 @@ class SplashScreenActivity : AppCompatActivity() {
             finish()
                               }, 3000)
 
-        if (firebaseUser!=null){
-            finish()
-            startActivity(Intent(this, HomeActivity::class.java))
-        }
     }
 
 }

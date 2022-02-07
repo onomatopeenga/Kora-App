@@ -145,14 +145,14 @@
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/google_login_btn"
+        android:id="@+id/sign_in_button"
         android:layout_width="25dp"
         android:layout_height="25dp"
-        android:layout_marginBottom="16dp"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/googleg_standard_color_18"
         android:layout_below="@id/orwith_signup"
-        android:layout_centerInParent="true"/>
+        android:src="@drawable/googleg_standard_color_18"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="16dp" />
 
     <LinearLayout
         android:id="@+id/signup_footer"

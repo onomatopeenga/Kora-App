@@ -3,10 +3,10 @@ package com.example.kora
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import android.view.View
+import android.widget.*
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
@@ -24,6 +24,7 @@ class LoginActivity : AppCompatActivity() {
         val btnSignup = findViewById<Button>(R.id.signup_btn)
         val gosignup = findViewById<TextView>(R.id.logintosignup)
         val forgotpass = findViewById<TextView>(R.id.forgot_password)
+        val signInButton : ImageView = findViewById<ImageView>(R.id.google_login_btn)
         val firebaseAuth:FirebaseAuth = FirebaseAuth.getInstance()
         val firebaseUser: FirebaseUser? = firebaseAuth.currentUser
 
@@ -60,13 +61,14 @@ class LoginActivity : AppCompatActivity() {
 
                             }
                         }else{
-                            Toast.makeText(this, "Email doesn't exist", Toast.LENGTH_LONG).show()
+                            Toast.makeText(this, "Email or password doesn't exist", Toast.LENGTH_LONG).show()
                         }
                         }
                     }
             }
 
         }
+
 }
 
 

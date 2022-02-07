@@ -13,12 +13,17 @@ import android.widget.Toast
 import android.widget.Toolbar
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.FragmentTransaction
+import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 
 class HomeActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener{
-    private lateinit var firebaseAuth: FirebaseAuth
+     lateinit var firebaseAuth: FirebaseAuth
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +38,7 @@ class HomeActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         val schedulecard = findViewById<CardView>(R.id.schedule_card)
         val notescard = findViewById<CardView>(R.id.notes_card)
         val taskscard = findViewById<CardView>(R.id.tasks_card)
+
 
         calendarcard.setOnClickListener {
             Toast.makeText(this, "Calendar", Toast.LENGTH_SHORT).show()
@@ -73,8 +79,13 @@ class HomeActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                 overridePendingTransition(0,0)
             }
             R.id.logout -> {
-                val firebaseAuth:FirebaseAuth = FirebaseAuth.getInstance()
-                firebaseAuth.signOut()
+                FirebaseAuth.getInstance().signOut()
+                val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                    .requestIdToken(getString(R.string.default_web_client_id))
+                    .requestEmail()
+                    .build()
+                val mgoogleSignInClient = GoogleSignIn.getClient(this, gso)
+                mgoogleSignInClient.signOut()
                 val intent = Intent(this, SplashScreenActivity::class.java)
                 startActivity(intent)
                 overridePendingTransition(0,0)

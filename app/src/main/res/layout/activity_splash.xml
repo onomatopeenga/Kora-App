@@ -86,18 +86,70 @@
         android:id="@+id/signup_btn"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="12dp"
         android:background="@drawable/loginbtnbackground"
         android:text="Sign Up"
         android:textColor="@color/textpurple"
         app:backgroundTint="@color/iconcolor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/login_btn">
+
+    </Button>
+    <LinearLayout
+        android:id="@+id/orwith_signup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="bottom|center"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/signup_btn">
+        <View
+            android:id="@+id/view"
+            android:layout_width="145dp"
+            android:layout_height="1dp"
+            android:layout_gravity="bottom"
+            android:background="@color/iconcolor"
+            >
+
+        </View>
+
+        <TextView
+            android:id="@+id/or_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:text=" OR "
+            android:textSize="10sp">
+
+        </TextView>
+        <View
+            android:id="@+id/view2"
+            android:layout_width="145dp"
+            android:layout_height="1dp"
+            android:layout_gravity="bottom"
+            android:background="@color/iconcolor"
+            >
+
+        </View>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/google_login_btn"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/googleg_standard_color_18"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/login_btn"
-        app:layout_constraintVertical_bias="0.0">
-
-    </Button>
+        app:layout_constraintTop_toBottomOf="@id/signup_btn"
+        android:layout_centerInParent="true"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
