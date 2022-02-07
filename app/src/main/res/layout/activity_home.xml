@@ -68,13 +68,17 @@
             app:layout_constraintTop_toBottomOf="@id/header_appbar"
             />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:overScrollMode="never"
         android:scrollbars="none"
+        android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/header_layout">
+
         <GridLayout
             android:columnCount="2"
             android:rowCount="3"
@@ -190,103 +194,50 @@
                         android:layout_height="60dp"/>
                     <TextView
                         android:layout_marginTop="10dp"
-                        android:textSize="18sp"
+                       android:textSize="18sp"
                         android:textColor="@color/textpurple"
                         android:text="Tasks"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
-                android:id="@+id/reminders_card"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                app:cardElevation="7dp"
-                app:cardCornerRadius="14dp"
-                android:layout_margin="15dp">
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:padding="10dp"
-                    android:gravity="center"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                    <ImageView
-                        android:src="@drawable/clockcon"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"/>
-                    <TextView
-                        android:layout_marginTop="10dp"
-                        android:textSize="18sp"
-                        android:textColor="@color/textpurple"
-                        android:text="Reminders"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
-                android:id="@+id/archive_card"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                app:cardElevation="7dp"
-                app:cardCornerRadius="14dp"
-                android:layout_margin="15dp">
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:padding="10dp"
-                    android:gravity="center"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                    <ImageView
-                        android:src="@drawable/archivecon"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"/>
-                    <TextView
-                        android:layout_marginTop="12dp"
-                        android:textSize="18sp"
-                        android:textColor="@color/textpurple"
-                        android:text="Archive"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
+
+
         </GridLayout>
     </ScrollView>
+
     <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinatorLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="match_parent">
 
         <com.google.android.material.bottomappbar.BottomAppBar
             android:id="@+id/bottomAppBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
             app:fabCradleMargin="20dp"
-            app:fabCradleVerticalOffset="10dp"
             app:fabCradleRoundedCornerRadius="20dp"
-            android:layout_gravity="bottom">
+            app:fabCradleVerticalOffset="10dp">
+
             <com.google.android.material.bottomnavigation.BottomNavigationView
-                app:itemIconTint="@drawable/bottomnav_selector"
                 android:id="@+id/bottomNavigationView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginEnd="16dp"
-                app:labelVisibilityMode="unlabeled"
                 android:background="@android:color/transparent"
-                app:menu="@menu/bottom_nav_menu">
-            </com.google.android.material.bottomnavigation.BottomNavigationView>
+                app:itemIconTint="@drawable/bottomnav_selector"
+                app:labelVisibilityMode="unlabeled"
+                app:menu="@menu/bottom_nav_menu"></com.google.android.material.bottomnavigation.BottomNavigationView>
         </com.google.android.material.bottomappbar.BottomAppBar>
+
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_add"
-            app:layout_anchor="@id/bottomAppBar"
             app:backgroundTint="#F1A503"
-            tools:ignore="ContentDescription">
-        </com.google.android.material.floatingactionbutton.FloatingActionButton>
+            app:layout_anchor="@id/bottomAppBar"
+            tools:ignore="ContentDescription"></com.google.android.material.floatingactionbutton.FloatingActionButton>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
 
