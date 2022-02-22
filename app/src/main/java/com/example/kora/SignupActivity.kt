@@ -46,6 +46,12 @@ class SignupActivity : AppCompatActivity() {
             val getemail: String = email.text.toString().trim()
             val getpass: String = password.text.toString().trim()
             val getcomfpass: String = confirmpass.text.toString().trim()
+
+           val intent = Intent(this, ProfileActivity::class.java)
+            intent.putExtra("username", getuser)
+            intent.putExtra("email", getemail)
+
+
             if (getuser.isNullOrBlank() || getemail.isNullOrBlank() || getpass.isNullOrBlank()){
                 Toast.makeText(this, "All Fields Required", Toast.LENGTH_LONG).show()
             }

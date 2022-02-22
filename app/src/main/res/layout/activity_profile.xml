@@ -11,7 +11,7 @@
         android:layout_alignParentStart="true"
         android:layout_marginStart="35dp"
         android:layout_marginTop="50dp"
-        android:layout_marginBottom="35dp"
+        android:layout_marginBottom="20dp"
         android:fontFamily="@font/montserrat"
         android:text="Profile"
         android:textAlignment="textStart"
@@ -20,42 +20,78 @@
         android:textStyle="bold"
         />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/account_info"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_below="@+id/profileTextView"
-        android:layout_marginStart="35dp"
-        android:layout_marginEnd="35dp"
-        android:layout_marginBottom="20dp">
-
         <TextView
+            android:id="@+id/text_account_info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginStart="36dp"
+            android:textSize="15sp"
+            android:layout_marginBottom="35dp"
+            android:textStyle="bold"
+            android:layout_below="@id/profileTextView"
             android:textColor="@color/textpurple"
             android:text="Account Information"/>
-
-
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/delteaccount"
-        android:layout_marginEnd="35dp"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_below="@+id/account_info"
-        android:layout_marginStart="35dp">
         <TextView
+            android:id="@+id/emailtv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginStart="36dp"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_below="@id/text_account_info"
             android:textColor="@color/textpurple"
-            android:text="Delete my account"/>
+            android:text="Email: "/>
+        <TextView
+            android:id="@+id/useremailtv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="15dp"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_below="@id/emailtv"
+            android:textColor="@color/iconcolor2"
+            android:text=""/>
+        <TextView
+            android:id="@+id/usernametv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="36dp"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_marginTop="35dp"
+            android:layout_below="@id/useremailtv"
+            android:textColor="@color/textpurple"
+            android:text="Username: "/>
+        <TextView
+            android:id="@+id/userusernametv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="15dp"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_below="@id/usernametv"
+            android:textColor="@color/iconcolor2"
+            android:text=""/>
+    <Button
+        android:id="@+id/deleteaccount"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:background="@drawable/loginbtnbackground"
+        android:text="Delete Account"
+        android:layout_centerInParent="true"
+        android:textColor="@color/textpurple"
+        app:backgroundTint="@color/buttonyellow"
+        android:layout_below="@id/userusernametv"
+       >
 
-    </androidx.cardview.widget.CardView>
+    </Button>
+
+
+
+
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"

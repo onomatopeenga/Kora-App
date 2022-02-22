@@ -14,6 +14,7 @@ import com.google.firebase.auth.FirebaseUser
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var firebaseUser: FirebaseUser
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,12 +22,11 @@ class LoginActivity : AppCompatActivity() {
         val email: TextInputEditText = findViewById<TextInputEditText>(R.id.loginEmailEditText)
         val password: TextInputEditText = findViewById<TextInputEditText>(R.id.loginPasswordEditText)
         val btnLogin = findViewById<Button>(R.id.login_btn)
-        val btnSignup = findViewById<Button>(R.id.signup_btn)
         val gosignup = findViewById<TextView>(R.id.logintosignup)
         val forgotpass = findViewById<TextView>(R.id.forgot_password)
-        val signInButton : ImageView = findViewById<ImageView>(R.id.google_login_btn)
-        val firebaseAuth:FirebaseAuth = FirebaseAuth.getInstance()
+        val firebaseAuth = FirebaseAuth.getInstance()
         val firebaseUser: FirebaseUser? = firebaseAuth.currentUser
+
 
         if (firebaseUser!=null){
             finish()
@@ -45,13 +45,12 @@ class LoginActivity : AppCompatActivity() {
         btnLogin.setOnClickListener {
             val getuser: String = email.text.toString().trim()
             val getpass: String = password.text.toString().trim()
-            if (getuser.isNullOrBlank() ||  getpass.isNullOrBlank()){
+            if (getuser.isBlank() ||  getpass.isBlank()){
                 Toast.makeText(this, "All Fields Required", Toast.LENGTH_LONG).show()
             }else{
                 firebaseAuth.signInWithEmailAndPassword(getuser, getpass )
                     .addOnCompleteListener(this) { task ->
                         if(task.isSuccessful){
-                            val firebaseUser: FirebaseUser? = firebaseAuth.currentUser
                             if (firebaseUser?.isEmailVerified == true){
                                 val intent = Intent(this, HomeActivity::class.java)
                                 startActivity(intent)

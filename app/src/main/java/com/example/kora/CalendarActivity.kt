@@ -26,6 +26,7 @@ class CalendarActivity : AppCompatActivity(),  BottomNavigationView.OnNavigation
                 val intent = Intent(this, NotesActivity::class.java)
                 startActivity(intent)
                 overridePendingTransition(0,0)
+                finish()
 
 
             }
@@ -34,7 +35,7 @@ class CalendarActivity : AppCompatActivity(),  BottomNavigationView.OnNavigation
                 val intent = Intent(this, HomeActivity::class.java)
                 startActivity(intent)
                 overridePendingTransition(0,0)
-
+                finish()
 
             }
             R.id.profile -> {
@@ -42,6 +43,7 @@ class CalendarActivity : AppCompatActivity(),  BottomNavigationView.OnNavigation
                 val intent = Intent(this, ProfileActivity::class.java)
                 startActivity(intent)
                 overridePendingTransition(0,0)
+                finish()
 
 
             }

@@ -78,6 +78,12 @@ class HomeActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                 startActivity(intent)
                 overridePendingTransition(0,0)
             }
+            R.id.support ->{
+                Toast.makeText(this, "About us", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, SupportActivity::class.java)
+                startActivity(intent)
+                overridePendingTransition(0,0)
+            }
             R.id.logout -> {
                 FirebaseAuth.getInstance().signOut()
                 val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)

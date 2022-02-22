@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.kora">
+    package="com.example.kora" >
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -10,7 +10,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_appicon"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Kora">
+        android:theme="@style/Theme.Kora" >
+        <activity
+            android:name=".SupportActivity"
+            android:exported="false" />
         <activity
             android:name=".SettingsActivity"
             android:exported="true" />
@@ -34,7 +37,7 @@
             android:exported="true" />
         <activity
             android:name=".SplashScreenActivity"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -46,8 +49,7 @@
             android:exported="true" />
         <activity
             android:name=".HomeActivity"
-            android:exported="true">
-
+            android:exported="true" >
         </activity>
         <activity
             android:name=".MainActivity"
