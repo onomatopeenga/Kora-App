@@ -8,6 +8,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="login_btn_text">Login</string>
+    //about us text
     <string name="WhatGoal">KORA: An All-in-one Productivity Application is a Capstone Project that aims provide different users a more simple experience in using productivity apps by reducing their amount of time in opening different applications that could be merged into one.</string>
     <string name="HowKora">KORA aid its users by providing practicality in app usage. Instead of switching from one mobile app to another, KORA places them all in one place.</string>
     <string name="WhenKora">The development of KORA begun in December 2020.</string>
@@ -18,4 +19,12 @@
     <string name="WhyKora">At Kora, we have seen the impact that time management, efficiency, and productivity have on students and workers. The fact is, managing a productive routine is challenging: keeping track of deadlines and schedules can be tough, motivation may falter over time and disorganization can be a drag. That\'s why we created Kora: an all-in-one productivity application to boost your productivity.</string>
     <string name="Splash_Text">An all-in-one application for \n managing your schedule, tasks and notes.</string>
     <string name="abouttheapp">An All-in-one Productivity Application is a mobile application that combines multiple mobile applications that are used for productivity. Some of these applications include Notes, Reminders, and Calendar to name a few. KORA aims to be rid of the hassle of having to switch from one app to another as making it practical and unique. With that being said, KORA aims to provide faster service to its users by allowing them to switch from one productive task to another inside it.</string>
+    <string name="notes">My Notes</string>
+    <string name="note_title">Note Title</string>
+    <string name="note_sub_title">Note Subtitle</string>
+    <string name="notes_desc">Enter Note Here</string>
+    <string name="web_url">Enter Web Url</string>
+    <string name="cancel">Cancel</string>
+    <string name="storage_permission_text">This app needs access to your storage.</string>
+    <string name="search">Search your notes</string>
 </resources>

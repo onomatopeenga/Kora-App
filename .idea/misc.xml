@@ -33,10 +33,17 @@
         <entry key="..\:/Users/Sophia/StudioProjects/Kora-App/app/src/main/res/drawable/ic_lock.xml" value="0.197" />
         <entry key="..\:/Users/Sophia/StudioProjects/Kora-App/app/src/main/res/layout/activity_home.xml" value="0.17481884057971014" />
         <entry key="..\:/Users/Sophia/StudioProjects/Kora-App/app/src/main/res/layout/activity_login.xml" value="0.17481884057971014" />
+        <entry key="..\:/Users/Sophia/StudioProjects/Kora-App/app/src/main/res/layout/activity_notes.xml" value="0.1671195652173913" />
         <entry key="..\:/Users/Sophia/StudioProjects/Kora-App/app/src/main/res/layout/activity_profile.xml" value="0.18" />
         <entry key="..\:/Users/Sophia/StudioProjects/Kora-App/app/src/main/res/layout/activity_signup.xml" value="0.1" />
         <entry key="..\:/Users/Sophia/StudioProjects/Kora-App/app/src/main/res/layout/activity_splash.xml" value="0.25" />
         <entry key="..\:/Users/Sophia/StudioProjects/Kora-App/app/src/main/res/layout/activity_support.xml" value="0.2" />
+        <entry key="..\:/Users/Sophia/StudioProjects/Kora-App/app/src/main/res/layout/fragment_create_note.xml" value="0.18" />
+        <entry key="..\:/Users/Sophia/StudioProjects/Kora-App/app/src/main/res/layout/fragment_notes.xml" value="0.18432971014492755" />
+        <entry key="..\:/Users/Sophia/StudioProjects/Kora-App/app/src/main/res/layout/fragment_notes_home.xml" value="0.2" />
+        <entry key="..\:/Users/Sophia/StudioProjects/Kora-App/app/src/main/res/layout/header_calendar_schedule.xml" value="0.15942028985507245" />
+        <entry key="..\:/Users/Sophia/StudioProjects/Kora-App/app/src/main/res/layout/header_notes_tasks.xml" value="0.25" />
+        <entry key="..\:/Users/Sophia/StudioProjects/Kora-App/app/src/main/res/layout/note_item.xml" value="0.67" />
       </map>
     </option>
   </component>

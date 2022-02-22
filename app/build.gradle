@@ -2,6 +2,8 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'com.google.gms.google-services'
+    id 'kotlin-kapt'
+    id 'kotlin-android-extensions'
 }
 
 android {
@@ -33,8 +35,9 @@ android {
 }
 
 dependencies {
-
+    implementation 'org.lsposed.hiddenapibypass:hiddenapibypass:2.0'
     implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.6.10'
     implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation 'com.google.android.material:material:1.5.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
@@ -47,14 +50,36 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     implementation 'com.google.android.gms:play-services-auth:20.1.0'
     implementation 'com.google.android.material:material:1.6.0-alpha02'
+    implementation "androidx.recyclerview:recyclerview:1.2.1"
     implementation 'com.firebaseui:firebase-ui-auth:4.3.2'
 
     // Import the BoM for the Firebase platform
     implementation platform('com.google.firebase:firebase-bom:29.0.4')
 
+
     // Declare the dependency for the Firebase Authentication library
     // When using the BoM, you don't specify versions in Firebase library dependencies
     implementation 'com.google.firebase:firebase-auth-ktx'
+
+    //room database dependencies
+    implementation 'androidx.room:room-runtime:2.4.1'
+    kapt 'androidx.room:room-compiler:2.4.1'
+    implementation 'androidx.room:room-ktx:2.4.1'
+
+    //coroutines
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2'
+
+    //rounded imageview
+    implementation 'com.makeramen:roundedimageview:2.3.0'
+
+    //circle imageview
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+    //image cropping
+    implementation 'com.theartofdev.edmodo:android-image-cropper:2.8.0'
+
+    //easy permissions
+    implementation 'pub.devrel:easypermissions:3.0.0'
 
 
 }
