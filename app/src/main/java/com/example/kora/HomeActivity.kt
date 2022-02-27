@@ -13,6 +13,7 @@ import android.widget.Toast
 import android.widget.Toolbar
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.FragmentTransaction
+import com.example.kora.databinding.ActivityHomeBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -22,44 +23,34 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 
 class HomeActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener{
-     lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var  homeBinding: ActivityHomeBinding
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home)
-        setSupportActionBar(findViewById(R.id.appbar_home))
+        homeBinding = ActivityHomeBinding.inflate(layoutInflater)
+        setContentView(homeBinding.root)
+        setSupportActionBar(homeBinding.appbarHome)
 
         val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavigationView)
         bottomNavigationView.background = null
         bottomNavigationView.menu.getItem(2).isEnabled = false
         bottomNavigationView.setOnNavigationItemSelectedListener(this)
-        val calendarcard = findViewById<CardView>(R.id.calendar_card)
-        val schedulecard = findViewById<CardView>(R.id.schedule_card)
-        val notescard = findViewById<CardView>(R.id.notes_card)
-        val taskscard = findViewById<CardView>(R.id.tasks_card)
 
 
-        calendarcard.setOnClickListener {
-            Toast.makeText(this, "Calendar", Toast.LENGTH_SHORT).show()
-            val intent = Intent(this, CalendarActivity::class.java)
-            startActivity(intent)
-        }
-        schedulecard.setOnClickListener {
-            Toast.makeText(this, "Schedule", Toast.LENGTH_SHORT).show()
-            val intent = Intent(this, CalendarActivity::class.java)
-            startActivity(intent)
-        }
-        notescard.setOnClickListener {
+        homeBinding.notesCard.setOnClickListener {
             Toast.makeText(this, "Notes", Toast.LENGTH_SHORT).show()
             val intent = Intent(this, NotesActivity::class.java)
             startActivity(intent)
+            overridePendingTransition(0,0)
 
         }
-        taskscard.setOnClickListener {
+        homeBinding.tasksCard.setOnClickListener {
             Toast.makeText(this, "Tasks", Toast.LENGTH_SHORT).show()
-            val intent = Intent(this, NotesActivity::class.java)
+            val intent = Intent(this, TasksActivity::class.java)
             startActivity(intent)
+            overridePendingTransition(0,0)
 
         }
     }
@@ -108,14 +99,7 @@ class HomeActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                 overridePendingTransition(0,0)
 
             }
-            R.id.calendar -> {
-                Toast.makeText(this, "Calendar and Schedule", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this, CalendarActivity::class.java)
-                startActivity(intent)
-                overridePendingTransition(0,0)
 
-
-            }
             R.id.profile -> {
                 Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, ProfileActivity::class.java)

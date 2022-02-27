@@ -3,8 +3,6 @@ package com.example.kora
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.example.kora.adapter.NotesAdapter
-import kotlinx.android.synthetic.main.fragment_notes_home.*
 
 
 class NotesActivity : AppCompatActivity() {

@@ -8,7 +8,7 @@ import com.example.kora.dao.NoteDao
 import com.example.kora.entities.Notes
 
 @Database(entities = [Notes::class],version = 1, exportSchema = false)
-abstract class NotesDatabase:RoomDatabase(){
+abstract class NotesDatabase:RoomDatabase() {
     companion object {
         var notesDatabase: NotesDatabase? = null
 

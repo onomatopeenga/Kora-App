@@ -8,18 +8,25 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="buttonyellow">#F1A503</color>
-    <color name="textpurple">#150E42</color>
-    <color name="background">#F1F1F3</color>
-    <color name="iconcolor">#C6C6C6</color>
-    <color name="iconcolor2">#676767</color>
-    <color name="textgray">#222225</color>
+    <color name="textpurple">#FF150E42</color>
+    <color name="background">#FFF1F1F3</color>
+    <color name="iconcolor">#FFC6C6C6</color>
+    <color name="iconcolor2">#FF676767</color>
+    <color name="textgray">#FF222225</color>
 
     //note colors
-    <color name="Yellow">#ffd633</color>
+    //default color is button yellow
+    //color 1
     <color name="Blue">#ADD8E6</color>
+    //color 2
+    <color name="Yellow">#FFD633</color>
+    //color 3
     <color name="Red">#FE7062</color>
-    <color name="Purple">#A48DCE</color>
-    <color name="Green">#638600</color>
+    //color 4
+    <color name="Purple">#D0A2D5</color>
+    //color 5
+    <color name="Green">#FFD5FCB9</color>
+    //color6
     <color name="Gray">#C4CFCE</color>
 
 </resources>

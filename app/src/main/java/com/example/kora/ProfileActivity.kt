@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import com.example.kora.databinding.ActivityProfileBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -17,20 +18,18 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser as FirebaseUser
 
 class ProfileActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
-    lateinit var deletebutton : Button
+    private lateinit var profileBinding: ActivityProfileBinding
     private var firebaseAuth:FirebaseAuth = FirebaseAuth.getInstance()
-    private lateinit var username : TextView
-    private lateinit var useremail : TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_profile)
+        profileBinding = ActivityProfileBinding.inflate(layoutInflater)
+        setContentView(profileBinding.root)
+
         val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavigationView)
         bottomNavigationView.background = null
         bottomNavigationView.menu.getItem(2).isEnabled = false
         bottomNavigationView.setOnNavigationItemSelectedListener(this)
-        deletebutton = findViewById(R.id.deleteaccount)
-        useremail = findViewById(R.id.useremailtv)
-        username = findViewById(R.id.userusernametv)
+
 
 
         val user = firebaseAuth.currentUser
@@ -38,8 +37,9 @@ class ProfileActivity : AppCompatActivity(), BottomNavigationView.OnNavigationIt
         if (account != null) {
             var name = account.displayName.toString().trim()
             var email = account.email.toString().trim()
-            username.text = name
-            useremail.text = email
+            profileBinding.useremailtv.text = email
+            profileBinding.userusernametv.text = name
+
         }
 
         fun deleteUser(user: FirebaseUser) {
@@ -53,12 +53,12 @@ class ProfileActivity : AppCompatActivity(), BottomNavigationView.OnNavigationIt
 
         }
 
-        deletebutton.setOnClickListener() {
+        profileBinding.deleteaccount.setOnClickListener() {
             val dialogBuilder = AlertDialog.Builder(this)
             dialogBuilder.setMessage("Deleting this account will remove your account data and access to the application")
             dialogBuilder.setPositiveButton(
                 "Delete",
-                DialogInterface.OnClickListener { dialogInterface, i ->
+                DialogInterface.OnClickListener { dialog, i ->
                     if (user != null) {
                         deleteUser(user)
 
@@ -88,14 +88,7 @@ class ProfileActivity : AppCompatActivity(), BottomNavigationView.OnNavigationIt
 
 
             }
-            R.id.calendar -> {
-                Toast.makeText(this, "Calendar and Schedule", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this, CalendarActivity::class.java)
-                startActivity(intent)
-                overridePendingTransition(0,0)
 
-
-            }
             R.id.notes -> {
                 Toast.makeText(this, "Notes and Tasks", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, NotesActivity::class.java)
