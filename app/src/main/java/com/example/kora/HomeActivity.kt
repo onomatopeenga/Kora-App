@@ -35,7 +35,7 @@ class HomeActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
 
         val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavigationView)
         bottomNavigationView.background = null
-        bottomNavigationView.menu.getItem(2).isEnabled = false
+        bottomNavigationView.menu.getItem(1).isEnabled = false
         bottomNavigationView.setOnNavigationItemSelectedListener(this)
 
 
@@ -92,13 +92,7 @@ class HomeActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
     }
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.notes -> {
-                Toast.makeText(this, "Notes and Tasks", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this, NotesActivity::class.java)
-                startActivity(intent)
-                overridePendingTransition(0,0)
 
-            }
 
             R.id.profile -> {
                 Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show()

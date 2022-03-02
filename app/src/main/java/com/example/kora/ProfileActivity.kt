@@ -4,6 +4,7 @@ import android.content.DialogInterface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.content.Intent
+import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Button
@@ -13,6 +14,7 @@ import androidx.appcompat.app.AlertDialog
 import com.example.kora.databinding.ActivityProfileBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser as FirebaseUser
@@ -24,6 +26,7 @@ class ProfileActivity : AppCompatActivity(), BottomNavigationView.OnNavigationIt
         super.onCreate(savedInstanceState)
         profileBinding = ActivityProfileBinding.inflate(layoutInflater)
         setContentView(profileBinding.root)
+        setSupportActionBar(profileBinding.appbarNotesTasks)
 
         val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavigationView)
         bottomNavigationView.background = null
@@ -43,7 +46,7 @@ class ProfileActivity : AppCompatActivity(), BottomNavigationView.OnNavigationIt
         }
 
         fun deleteUser(user: FirebaseUser) {
-            user.delete()?.addOnCompleteListener { task ->
+            user.delete().addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     val intent = Intent(this, SplashActivity::class.java)
                     startActivity(intent)
@@ -89,15 +92,6 @@ class ProfileActivity : AppCompatActivity(), BottomNavigationView.OnNavigationIt
 
             }
 
-            R.id.notes -> {
-                Toast.makeText(this, "Notes and Tasks", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this, NotesActivity::class.java)
-                startActivity(intent)
-                overridePendingTransition(0,0)
-
-
-
-            }
             R.id.profile -> {
                 Toast.makeText(this, "Notes and Tasks", Toast.LENGTH_SHORT).show()
 
@@ -108,6 +102,41 @@ class ProfileActivity : AppCompatActivity(), BottomNavigationView.OnNavigationIt
 
         }
         return false
+    }
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater = menuInflater
+        inflater.inflate(R.menu.options_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.settings -> {
+                Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, SettingsActivity::class.java)
+                startActivity(intent)
+                overridePendingTransition(0,0)
+            }
+            R.id.support ->{
+                Toast.makeText(this, "About us", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, SupportActivity::class.java)
+                startActivity(intent)
+                overridePendingTransition(0,0)
+            }
+            R.id.logout -> {
+                FirebaseAuth.getInstance().signOut()
+                val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                    .requestIdToken(getString(R.string.default_web_client_id))
+                    .requestEmail()
+                    .build()
+                val mgoogleSignInClient = GoogleSignIn.getClient(this, gso)
+                mgoogleSignInClient.signOut()
+                val intent = Intent(this, SplashScreenActivity::class.java)
+                startActivity(intent)
+                overridePendingTransition(0,0)
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
 

@@ -5,20 +5,12 @@
         android:title="@string/menuhomelabel"
         android:icon="@drawable/ic_home"
         />
-    <item
-        android:id="@+id/calendar"
-        android:title="@string/menucalendarlabel"
-        android:icon="@drawable/ic_calendar"
-        />
+
     <item
         android:id="@+id/placeholder"
         android:title=" "
         />
-    <item
-        android:id="@+id/notes"
-        android:title="@string/menunoteslabel"
-        android:icon="@drawable/ic_note"
-        />
+
     <item
         android:id="@+id/profile"
         android:title="@string/menuprofilelabel"
