@@ -1,5 +1,6 @@
 package com.example.kora
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,7 +10,6 @@ import android.widget.SearchView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.kora.adapter.NotesAdapter
 import com.example.kora.database.NotesDatabase
-import com.example.kora.databinding.FragmentCreateNoteBinding
 import com.example.kora.databinding.FragmentNotesHomeBinding
 import com.example.kora.entities.Notes
 
@@ -71,6 +71,13 @@ class NotesHomeFragment : BaseFragment() {
         //main fab button
         notesHomeBinding!!.fabbutton.setOnClickListener {
             replaceFragment(CreateNoteFragment.newInstance(), false)
+        }
+
+        //switch to task button
+        notesHomeBinding!!.taskHeaderBtn.setOnClickListener {
+            val intent = Intent(activity, TasksActivity::class.java)
+            startActivity(intent)
+
         }
 
         //create code for options menu when pressed
