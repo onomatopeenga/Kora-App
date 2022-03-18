@@ -3,6 +3,7 @@ package com.example.kora
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.example.kora.ui.notes.NotesHomeFragment
 
 
 class NotesActivity : AppCompatActivity() {
