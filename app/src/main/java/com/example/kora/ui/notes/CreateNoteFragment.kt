@@ -1,4 +1,4 @@
-package com.example.kora
+package com.example.kora.ui.notes
 
 import android.Manifest
 import android.annotation.SuppressLint
@@ -7,7 +7,6 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
-import android.database.Cursor
 import android.graphics.BitmapFactory
 import android.graphics.BitmapFactory.decodeFile
 import android.graphics.Color
@@ -20,6 +19,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
+import com.example.kora.BaseFragment
+import com.example.kora.R
 import com.example.kora.database.NotesDatabase
 import com.example.kora.databinding.FragmentCreateNoteBinding
 import com.example.kora.entities.Notes
