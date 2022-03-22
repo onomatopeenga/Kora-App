@@ -28,10 +28,7 @@ class LoginActivity : AppCompatActivity() {
         val firebaseUser: FirebaseUser? = firebaseAuth.currentUser
 
 
-        if (firebaseUser!=null){
-            finish()
-            startActivity(Intent(this, HomeActivity::class.java))
-        }
+
 
 
         gosignup.setOnClickListener {
@@ -55,6 +52,7 @@ class LoginActivity : AppCompatActivity() {
                                 val intent = Intent(this, HomeActivity::class.java)
                                 startActivity(intent)
                                 Toast.makeText(this, "Logged In Successfully", Toast.LENGTH_LONG).show()
+                                finish()
                             }else{
                                 Toast.makeText(this, "Please verify your email first", Toast.LENGTH_LONG).show()
 

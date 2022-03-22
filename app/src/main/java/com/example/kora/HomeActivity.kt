@@ -1,26 +1,16 @@
 package com.example.kora
+
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
-import android.view.MenuInflater
 import android.view.MenuItem
-import android.view.View
-import android.view.View.inflate
-import android.widget.Button
-import android.widget.TextView
 import android.widget.Toast
-import android.widget.Toolbar
-import androidx.cardview.widget.CardView
-import androidx.fragment.app.FragmentTransaction
+import androidx.appcompat.app.AppCompatActivity
 import com.example.kora.databinding.ActivityHomeBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.material.appbar.AppBarLayout
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
-import com.google.android.gms.auth.api.signin.GoogleSignInClient
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 
 class HomeActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener{
     private lateinit var  homeBinding: ActivityHomeBinding
@@ -44,6 +34,7 @@ class HomeActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
             val intent = Intent(this, NotesActivity::class.java)
             startActivity(intent)
             overridePendingTransition(0,0)
+            finish()
 
         }
         homeBinding.tasksCard.setOnClickListener {
@@ -51,6 +42,8 @@ class HomeActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
             val intent = Intent(this, TasksActivity::class.java)
             startActivity(intent)
             overridePendingTransition(0,0)
+            finish()
+
 
         }
     }
@@ -68,12 +61,14 @@ class HomeActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                 val intent = Intent(this, SettingsActivity::class.java)
                 startActivity(intent)
                 overridePendingTransition(0,0)
+
             }
             R.id.support ->{
                 Toast.makeText(this, "About us", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, SupportActivity::class.java)
                 startActivity(intent)
                 overridePendingTransition(0,0)
+
             }
             R.id.logout -> {
                 FirebaseAuth.getInstance().signOut()
@@ -86,6 +81,7 @@ class HomeActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                 val intent = Intent(this, SplashScreenActivity::class.java)
                 startActivity(intent)
                 overridePendingTransition(0,0)
+                finish()
             }
         }
         return super.onOptionsItemSelected(item)
@@ -99,6 +95,7 @@ class HomeActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                 val intent = Intent(this, ProfileActivity::class.java)
                 startActivity(intent)
                 overridePendingTransition(0,0)
+
 
 
 
