@@ -45,8 +45,9 @@ class SplashActivity : AppCompatActivity() {
             resultLauncher.launch(signInIntent)
         }
 
+        //Temporary Redirection
         btnLogin.setOnClickListener {
-            val intent = Intent(this, LoginActivity::class.java)
+            val intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
         }
         btnSignup.setOnClickListener {

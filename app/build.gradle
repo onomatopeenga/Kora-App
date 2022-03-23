@@ -93,10 +93,4 @@ dependencies {
 
     //easy permissions
     implementation 'pub.devrel:easypermissions:3.0.0'
-
-    //calendarview with events
-    implementation 'com.github.kizitonwose:CalendarView:1.0.4'
-
-
-
 }

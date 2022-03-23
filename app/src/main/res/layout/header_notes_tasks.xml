@@ -79,6 +79,7 @@
             android:layout_margin="10dp"
             android:background="@drawable/searchbackground"
             android:queryHint="Search Notes"
+            android:visibility="gone"
             android:searchIcon="@drawable/ic_search"
             android:theme="@style/ThemeOverlay.AppCompat"
             app:layout_constraintTop_toBottomOf="@id/header_appbar"
