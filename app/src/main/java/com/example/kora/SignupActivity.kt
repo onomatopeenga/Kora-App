@@ -17,11 +17,14 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.GoogleAuthProvider
-
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
 
 class SignupActivity : AppCompatActivity() {
     private lateinit var firebaseAuth: FirebaseAuth
+    var databaseReference: DatabaseReference? = null
+    var database:FirebaseDatabase? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +37,8 @@ class SignupActivity : AppCompatActivity() {
         val gologin = findViewById<TextView>(R.id.signuptologin)
         val signup_btn = findViewById<Button>(R.id.signup_btn)
         val firebaseAuth:FirebaseAuth = FirebaseAuth.getInstance()
+        database = FirebaseDatabase.getInstance()
+        databaseReference = database?.reference!!.child("profile")
 
 
 
@@ -51,7 +56,7 @@ class SignupActivity : AppCompatActivity() {
             intent.putExtra("username", getuser)
             intent.putExtra("email", getemail)
 
-
+            //validation
             if (getuser.isNullOrBlank() || getemail.isNullOrBlank() || getpass.isNullOrBlank()){
                 Toast.makeText(this, "All Fields Required", Toast.LENGTH_LONG).show()
             }
@@ -63,11 +68,15 @@ class SignupActivity : AppCompatActivity() {
                 firebaseAuth.createUserWithEmailAndPassword(getemail,getpass)
                     .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
+                        val currentuser = firebaseAuth.currentUser
+                        val currentuserDb = databaseReference!!.child((currentuser?.uid!!))
+                        currentuserDb.child("username").setValue(getuser)
                         firebaseAuth.currentUser?.sendEmailVerification()?.addOnCompleteListener { task ->
                             if(task.isSuccessful){
+                                Toast.makeText(this, "Sign up Successful, Please verify first and Login Again.", Toast.LENGTH_LONG).show()
                                 val intent = Intent(this, LoginActivity::class.java)
                                 startActivity(intent)
-                                Toast.makeText(this, "Sign up Successful, Please verify first and Login Again.", Toast.LENGTH_LONG).show()
+                                finish()
 
 
                             }

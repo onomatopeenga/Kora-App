@@ -17,6 +17,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 
 
@@ -53,6 +54,14 @@ class SplashActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        val firebaseAuth:FirebaseAuth = FirebaseAuth.getInstance()
+        val firebaseUser: FirebaseUser? = firebaseAuth.currentUser
+
+        if (firebaseUser!=null){
+            finish()
+            startActivity(Intent(this, HomeActivity::class.java))
+        }
+
     }
 
     private var resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
@@ -65,6 +74,7 @@ class SplashActivity : AppCompatActivity() {
 
             } catch (e:ApiException){
                 Toast.makeText(this,e.toString(), Toast.LENGTH_SHORT).show()
+
             }
 
         }
@@ -83,11 +93,6 @@ class SplashActivity : AppCompatActivity() {
 
     }
 
-    override fun onStart() {
-        super.onStart()
-        if(GoogleSignIn.getLastSignedInAccount(this)!=null){
-            startActivity(Intent(this, HomeActivity::class.java))
-            finish()
-        }
-    }
+
+
 }
