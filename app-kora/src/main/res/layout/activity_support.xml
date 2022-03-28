@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".SupportActivity">
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".SupportActivity">
+
+        <ImageView
+            android:layout_width="176dp"
+            android:layout_height="126dp"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/appicon" />
+        <TextView
+            android:id="@+id/aboutustv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="About Us"
+            android:fontFamily="@font/montserrat"
+            android:textStyle="bold"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="30dp"
+            android:textSize="35sp"
+            android:textColor="@color/textpurple"
+            android:layout_alignParentStart="true"/>
+
+        <TextView
+            android:layout_marginTop="15dp"
+            android:id="@+id/aboutustv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Who are we"
+            android:textSize="20sp"
+            android:textColor="@color/textpurple"
+            android:layout_marginStart="15dp"
+            android:fontFamily="@font/montserrat"
+            android:layout_below="@+id/aboutustv"/>
+
+        <TextView
+            android:id="@+id/aboutustv2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/aboutustv1"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="15dp"
+            android:lineSpacingExtra="2dp"
+            android:text="@string/Whoarewe"
+            android:textColor="@color/iconcolor2"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/aboutustv3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/aboutustv2"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/montserrat"
+            android:text="Kora"
+            android:textColor="@color/textpurple"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/aboutustv4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/aboutustv3"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="15dp"
+            android:lineSpacingExtra="2dp"
+            android:text="@string/WhyKora"
+            android:textColor="@color/iconcolor2"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_marginTop="15dp"
+            android:id="@+id/aboutustv5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="About the Kora Application"
+            android:textSize="20sp"
+            android:textColor="@color/textpurple"
+            android:layout_marginStart="15dp"
+            android:fontFamily="@font/montserrat"
+            android:layout_below="@+id/aboutustv4"/>
+
+        <TextView
+            android:id="@+id/aboutustv6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/aboutustv5"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="15dp"
+            android:lineSpacingExtra="2dp"
+            android:text="@string/abouttheapp"
+            android:textColor="@color/iconcolor2"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/aboutustv7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="FAQs"
+            android:fontFamily="@font/montserrat"
+            android:textStyle="bold"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:textSize="35sp"
+            android:layout_below="@id/aboutustv6"
+            android:textColor="@color/textpurple"
+            android:layout_alignParentStart="true"/>
+        <TextView
+            android:layout_marginTop="15dp"
+            android:id="@+id/aboutustv8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="What is Kora?"
+            android:textSize="20sp"
+            android:textColor="@color/textpurple"
+            android:layout_marginStart="15dp"
+            android:fontFamily="@font/montserrat"
+            android:layout_below="@+id/aboutustv7"/>
+        <TextView
+            android:id="@+id/aboutustv9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/aboutustv8"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="15dp"
+            android:lineSpacingExtra="2dp"
+            android:text="@string/WhatisKora"
+            android:textColor="@color/iconcolor2"
+            android:textSize="15sp" />
+        <TextView
+            android:layout_marginTop="15dp"
+            android:id="@+id/aboutustv10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Why is it named Kora?"
+            android:textSize="20sp"
+            android:textColor="@color/textpurple"
+            android:layout_marginStart="15dp"
+            android:fontFamily="@font/montserrat"
+            android:layout_below="@+id/aboutustv9"/>
+        <TextView
+            android:id="@+id/aboutustv11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/aboutustv10"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="15dp"
+            android:lineSpacingExtra="2dp"
+            android:text="@string/WhyNameKora"
+            android:textColor="@color/iconcolor2"
+            android:textSize="15sp" />
+        <TextView
+            android:layout_marginTop="15dp"
+            android:id="@+id/aboutustv12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Who are the creators?"
+            android:textSize="20sp"
+            android:textColor="@color/textpurple"
+            android:layout_marginStart="15dp"
+            android:fontFamily="@font/montserrat"
+            android:layout_below="@+id/aboutustv11"/>
+        <TextView
+            android:id="@+id/aboutustv13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/aboutustv12"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="15dp"
+            android:lineSpacingExtra="2dp"
+            android:text="@string/Whoarecreators"
+            android:textColor="@color/iconcolor2"
+            android:textSize="15sp" />
+        <TextView
+            android:layout_marginTop="15dp"
+            android:id="@+id/aboutustv14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="When was Kora developed?"
+            android:textSize="20sp"
+            android:textColor="@color/textpurple"
+            android:layout_marginStart="15dp"
+            android:fontFamily="@font/montserrat"
+            android:layout_below="@+id/aboutustv13"/>
+        <TextView
+            android:id="@+id/aboutustv15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/aboutustv14"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="15dp"
+            android:lineSpacingExtra="2dp"
+            android:text="@string/WhenKora"
+            android:textColor="@color/iconcolor2"
+            android:textSize="15sp" />
+        <TextView
+            android:layout_marginTop="15dp"
+            android:id="@+id/aboutustv16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="How will Kora be useful?"
+            android:textSize="20sp"
+            android:textColor="@color/textpurple"
+            android:layout_marginStart="15dp"
+            android:fontFamily="@font/montserrat"
+            android:layout_below="@+id/aboutustv15"/>
+        <TextView
+            android:id="@+id/aboutustv17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/aboutustv16"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="15dp"
+            android:lineSpacingExtra="2dp"
+            android:text="@string/HowKora"
+            android:textColor="@color/iconcolor2"
+            android:textSize="15sp" />
+        <TextView
+            android:layout_marginTop="15dp"
+            android:id="@+id/aboutustv18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="What is the goal?"
+            android:textSize="20sp"
+            android:textColor="@color/textpurple"
+            android:layout_marginStart="15dp"
+            android:fontFamily="@font/montserrat"
+            android:layout_below="@+id/aboutustv17"/>
+        <TextView
+            android:id="@+id/aboutustv19"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/aboutustv18"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="15dp"
+            android:lineSpacingExtra="2dp"
+            android:text="@string/WhatGoal"
+            android:textColor="@color/iconcolor2"
+            android:textSize="15sp" />
+
+
+
+
+
+    </RelativeLayout>
+
+
+</ScrollView>

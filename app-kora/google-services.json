@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1071891184598",
+    "project_id": "kora-c1a97",
+    "storage_bucket": "kora-c1a97.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1071891184598:android:ebfe5729cdc138eb8c0277",
+        "android_client_info": {
+          "package_name": "com.example.kora"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1071891184598-haf4ofth1cmfuennt5v31s1un30htidv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.kora",
+            "certificate_hash": "865d0779c0b3aabaaf6ada36c4aecc7c2939d8cb"
+          }
+        },
+        {
+          "client_id": "1071891184598-3isovr6glessoqdirlf56cmi6ggr06qs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCxoZ4v6DOIsuIiN3YJn_hNNmbTj5lIEuI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1071891184598-355nf9g9hiqbk8jvbc9pc7oqhfqcfin0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
