@@ -16,9 +16,9 @@
         android:roundIcon="@mipmap/ic_appicon"
         android:supportsRtl="true"
         android:theme="@style/Theme.Kora">
-        <activity
-            android:name=".CreateTaskActivity"
-            android:exported="false" />
+<!--        <activity-->
+<!--            android:name=".CreateTaskActivity"-->
+<!--            android:exported="false" />-->
         <activity
             android:name=".TasksActivity"
             android:exported="false" />
@@ -44,11 +44,13 @@
             android:name=".LoginActivity"
             android:exported="true" />
         <activity
+            android:name=".CalendarActivity"
+            android:exported="true" />
+        <activity
             android:name=".SplashScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

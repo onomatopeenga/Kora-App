@@ -17,11 +17,15 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.*
 import com.google.firebase.auth.FirebaseUser as FirebaseUser
 
 class ProfileActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
     private lateinit var profileBinding: ActivityProfileBinding
     private var firebaseAuth:FirebaseAuth = FirebaseAuth.getInstance()
+    var databaseReference: DatabaseReference? = null
+    var database: FirebaseDatabase? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         profileBinding = ActivityProfileBinding.inflate(layoutInflater)
@@ -33,39 +37,35 @@ class ProfileActivity : AppCompatActivity(), BottomNavigationView.OnNavigationIt
         bottomNavigationView.menu.getItem(2).isEnabled = false
         bottomNavigationView.setOnNavigationItemSelectedListener(this)
 
+        val firebaseAuth:FirebaseAuth = FirebaseAuth.getInstance()
+        database = FirebaseDatabase.getInstance()
+        databaseReference = database?.reference!!.child("profile")
+
+
+
 
 
         val user = firebaseAuth.currentUser
-        val account: GoogleSignInAccount? = GoogleSignIn.getLastSignedInAccount(this)
-        if (account != null) {
-            var name = account.displayName.toString().trim()
-            var email = account.email.toString().trim()
-            profileBinding.useremailtv.text = email
-            profileBinding.userusernametv.text = name
+
+        if (user != null) {
+            loadProfile()
 
         }
 
-        fun deleteUser(user: FirebaseUser) {
-            user.delete().addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    val intent = Intent(this, SplashActivity::class.java)
-                    startActivity(intent)
-                    finish()
-                }
-            }
 
-        }
 
         profileBinding.deleteaccount.setOnClickListener() {
             val dialogBuilder = AlertDialog.Builder(this)
             dialogBuilder.setMessage("Deleting this account will remove your account data and access to the application")
-            dialogBuilder.setPositiveButton(
-                "Delete",
-                DialogInterface.OnClickListener { dialog, i ->
-                    if (user != null) {
-                        deleteUser(user)
-
+            dialogBuilder.setPositiveButton("Delete", DialogInterface.OnClickListener { dialog, id ->
+                user?.delete()?.addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        val intent = Intent(this, SplashActivity::class.java)
+                        startActivity(intent)
+                        Toast.makeText(this, "User Deleted", Toast.LENGTH_SHORT).show()
+                        finish()
                     }
+                }
 
                 })
             dialogBuilder.setNegativeButton(
@@ -111,12 +111,6 @@ class ProfileActivity : AppCompatActivity(), BottomNavigationView.OnNavigationIt
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
-            R.id.settings -> {
-                Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this, SettingsActivity::class.java)
-                startActivity(intent)
-                overridePendingTransition(0,0)
-            }
             R.id.support ->{
                 Toast.makeText(this, "About us", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, SupportActivity::class.java)
@@ -125,18 +119,36 @@ class ProfileActivity : AppCompatActivity(), BottomNavigationView.OnNavigationIt
             }
             R.id.logout -> {
                 FirebaseAuth.getInstance().signOut()
-                val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                    .requestIdToken(getString(R.string.default_web_client_id))
-                    .requestEmail()
-                    .build()
-                val mgoogleSignInClient = GoogleSignIn.getClient(this, gso)
-                mgoogleSignInClient.signOut()
-                val intent = Intent(this, SplashScreenActivity::class.java)
-                startActivity(intent)
-                overridePendingTransition(0,0)
+                finish()
+
             }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun loadProfile() {
+
+        val user = firebaseAuth.currentUser
+        val userReference = databaseReference?.child(user?.uid!!)
+        profileBinding.useremailtv.text = user?.email
+        userReference?.addValueEventListener(object: ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+
+                profileBinding.userusernametv.text = snapshot.child("username").value.toString()
+
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+
+            }
+
+        })
+        if (profileBinding.userusernametv.text.isNullOrEmpty()){
+            val account: GoogleSignInAccount? = GoogleSignIn.getLastSignedInAccount(this)
+            var name = account?.displayName.toString().trim()
+            profileBinding.userusernametv.text = name
+
+        }
     }
 
 
