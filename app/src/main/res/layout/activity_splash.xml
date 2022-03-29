@@ -20,7 +20,7 @@
             android:layout_width="300dp"
             android:layout_height="300dp"
             android:layout_gravity="center"
-            android:src="@drawable/illustration" />
+            android:src="@drawable/homeillus" />
 
         <TextView
             android:id="@+id/splashTextView"
@@ -63,6 +63,7 @@
         android:text="A Productivity Application"
         android:textAlignment="center"
         android:textSize="15sp"
+        android:layout_marginStart="5dp"
         android:textColor="?android:textColorPrimary"
         app:layout_constraintBottom_toTopOf="@id/login_btn"
         app:layout_constraintEnd_toEndOf="parent"

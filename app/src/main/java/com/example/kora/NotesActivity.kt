@@ -3,15 +3,23 @@ package com.example.kora
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.example.kora.databinding.ActivityNotesBinding
+import com.example.kora.ui.notes.CreateNoteFragment
 import com.example.kora.ui.notes.NotesHomeFragment
 
 
 class NotesActivity : AppCompatActivity() {
+    private lateinit var notesBinding: ActivityNotesBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_notes)
+        notesBinding = ActivityNotesBinding.inflate(layoutInflater)
+        setContentView(notesBinding.root)
         replaceFragment(NotesHomeFragment.newInstance(), false)
+
+
+
     }
+
 
     //code for fragment replacement
     fun replaceFragment(fragment: Fragment, istransition: Boolean) {

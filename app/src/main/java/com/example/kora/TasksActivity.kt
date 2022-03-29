@@ -25,6 +25,8 @@ class TasksActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItem
         tasksBinding.notesHeaderBtn.setOnClickListener {
             val intent = Intent(this, NotesActivity::class.java)
             startActivity(intent)
+            overridePendingTransition(0, 0)
+            finish()
         }
 
     }

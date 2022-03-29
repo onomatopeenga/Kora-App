@@ -9,13 +9,18 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.kora.databinding.ActivityHomeBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.*
 
 class HomeActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
     private lateinit var homeBinding: ActivityHomeBinding
     var isAllFabsVisible = false
+    private var firebaseAuth:FirebaseAuth = FirebaseAuth.getInstance()
+    var databaseReference: DatabaseReference? = null
+    var database: FirebaseDatabase? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,6 +31,10 @@ class HomeActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         homeBinding.bottomNavigationView.background = null
         homeBinding.bottomNavigationView.menu.getItem(1).isEnabled = false
         homeBinding.bottomNavigationView.setOnNavigationItemSelectedListener(this)
+
+        val firebaseAuth:FirebaseAuth = FirebaseAuth.getInstance()
+        database = FirebaseDatabase.getInstance()
+        databaseReference = database?.reference!!.child("profile")
 
         homeBinding.notesCard.setOnClickListener {
             Toast.makeText(this, "Notes", Toast.LENGTH_SHORT).show()
@@ -44,11 +53,29 @@ class HomeActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         }
 
         homeBinding.calendarCard.setOnClickListener {
-            Toast.makeText(this, "Calendar", Toast.LENGTH_SHORT).show()
-            val intent = Intent(this, CalendarActivity::class.java)
+
+        }
+
+        homeBinding.fabnote.setOnClickListener {
+            Toast.makeText(this, "Notes", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, NotesActivity::class.java)
             startActivity(intent)
             overridePendingTransition(0, 0)
             finish()
+        }
+        homeBinding.fabtask.setOnClickListener {
+            Toast.makeText(this, "Checklist", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, TasksActivity::class.java)
+            startActivity(intent)
+            overridePendingTransition(0, 0)
+            finish()
+        }
+
+        val user = firebaseAuth.currentUser
+
+        if (user != null) {
+            loadProfile()
+
         }
 
         hideSubFabIcons()
@@ -63,17 +90,12 @@ class HomeActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.settings -> {
-                Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this, SettingsActivity::class.java)
-                startActivity(intent)
-                overridePendingTransition(0, 0)
-            }
             R.id.support -> {
                 Toast.makeText(this, "About us", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, SupportActivity::class.java)
                 startActivity(intent)
                 overridePendingTransition(0, 0)
+                finish()
             }
             R.id.logout -> {
                 FirebaseAuth.getInstance().signOut()
@@ -99,6 +121,7 @@ class HomeActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                 val intent = Intent(this, ProfileActivity::class.java)
                 startActivity(intent)
                 overridePendingTransition(0, 0)
+                finish()
             }
             R.id.home -> {
                 Toast.makeText(this, "Home", Toast.LENGTH_SHORT).show()
@@ -107,6 +130,30 @@ class HomeActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
             }
         }
         return false
+    }
+
+    private fun loadProfile() {
+
+        val user = firebaseAuth.currentUser
+        val userReference = databaseReference?.child(user?.uid!!)
+        userReference?.addValueEventListener(object: ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+
+                homeBinding.usernameTxt.text = snapshot.child("username").value.toString()
+
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+
+            }
+
+        })
+        if (homeBinding.usernameTxt.text.isNullOrEmpty()){
+            val account: GoogleSignInAccount? = GoogleSignIn.getLastSignedInAccount(this)
+            var name = account?.givenName.toString().trim()
+            homeBinding.usernameTxt.text = name
+
+        }
     }
 
     private fun hideSubFabIcons() {

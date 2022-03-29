@@ -111,12 +111,6 @@ class ProfileActivity : AppCompatActivity(), BottomNavigationView.OnNavigationIt
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
-            R.id.settings -> {
-                Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this, SettingsActivity::class.java)
-                startActivity(intent)
-                overridePendingTransition(0,0)
-            }
             R.id.support ->{
                 Toast.makeText(this, "About us", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, SupportActivity::class.java)

@@ -1,25 +1,29 @@
 package com.example.kora.ui.notes
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SearchView
+import android.widget.Toast
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.example.kora.BaseFragment
-import com.example.kora.R
+import com.example.kora.*
 import com.example.kora.ui.tasks.TasksHomeFragment
 import com.example.kora.adapter.NotesAdapter
 import com.example.kora.database.NotesDatabase
 import com.example.kora.databinding.FragmentNotesHomeBinding
 import com.example.kora.entities.Notes
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.navigation.NavigationView
 
 import kotlinx.coroutines.launch
 import java.util.*
 import kotlin.collections.ArrayList
 
-class NotesHomeFragment : BaseFragment() {
+class NotesHomeFragment : BaseFragment(), BottomNavigationView.OnNavigationItemSelectedListener {
 
     private var notesHomeBinding: FragmentNotesHomeBinding? = null
     var arrNotes = ArrayList<Notes>()
@@ -37,6 +41,8 @@ class NotesHomeFragment : BaseFragment() {
     ): View? {
         notesHomeBinding = FragmentNotesHomeBinding.inflate(inflater, container, false)
         return notesHomeBinding?.root
+
+
     }
 
     companion object {
@@ -52,6 +58,7 @@ class NotesHomeFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         notesHomeBinding = FragmentNotesHomeBinding.bind(view)
+        notesHomeBinding!!.bottomNavigationView.setOnNavigationItemSelectedListener(this)
 
         notesHomeBinding!!.recyclerView.apply {
             layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
@@ -72,12 +79,13 @@ class NotesHomeFragment : BaseFragment() {
 
         //main fab button
         notesHomeBinding!!.fabbutton.setOnClickListener {
-            replaceFragment(CreateNoteFragment.newInstance(), false)
+         replaceFragment(CreateNoteFragment.newInstance(), false)
         }
 
         //switch to task button
         notesHomeBinding!!.taskHeaderBtn.setOnClickListener {
-            replaceFragment(TasksHomeFragment.newInstance(), false)
+            val intent = Intent(requireActivity(),TasksActivity::class.java)
+            startActivity(intent)
 
         }
 
@@ -105,6 +113,10 @@ class NotesHomeFragment : BaseFragment() {
             }
 
         })
+        //error on this part idk how to fix -pia
+
+
+
     }
 
     private val onClicked = object : NotesAdapter.OnItemClickListener {
@@ -133,5 +145,25 @@ class NotesHomeFragment : BaseFragment() {
         fragmentTransition.replace(R.id.frame_layout, fragment)
             .addToBackStack(fragment.javaClass.simpleName).commit()
     }
+
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.profile -> {
+                Toast.makeText(requireContext(), "Profile", Toast.LENGTH_SHORT).show()
+                val intent = Intent(requireActivity(), ProfileActivity::class.java)
+                startActivity(intent)
+
+            }
+            R.id.home -> {
+                Toast.makeText(requireContext(), "Home", Toast.LENGTH_SHORT).show()
+                val intent = Intent(requireActivity(), HomeActivity::class.java)
+                startActivity(intent)
+
+
+            }
+        }
+        return false
+    }
+
 
 }
