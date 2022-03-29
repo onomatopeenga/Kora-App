@@ -31,4 +31,6 @@
     <string name="new_task">New Task</string>
     <string name="tasks">Tasks</string>
     <string name="setings_switch">Display Dark Mode</string>
+    <string name="date_today">Date Today</string>
+    <string name="let_s_do_something_productive_today">Let’s do something productive today</string>
 </resources>
